@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luisa Jaime: Personal Site and Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module" defer></script>
+    <style>
+        :root {
+            --color-accent: oklch(65% 50% 0);
+            --background-color: white;
+            --text-color: black;
+            --border-color: #A0A0A0;
+        }
+        
+        body { 
+            max-width: 100ch; 
+            margin: max(1em, calc((100% - 100ch) / 2)); 
+            padding-inline: 1em;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body.dark-mode {
+            --background-color: #121212;
+            --text-color: white;
+            --border-color: #444;
+        }
+
+        ul, li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav {
+            display: flex;
+            margin-bottom: 1em; 
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--background-color); 
+            transition: background-color 0.3s;
+        }
+        
+        body.dark-mode nav {
+            background-color: #1a1a1a; 
+        }
+
+        nav a { 
+            flex: 1;
+            text-align: center;
+            text-decoration: none; 
+            color: inherit; 
+            padding: 0.5em;
+        }
+        
+        nav a:hover {
+            border-bottom: 0.4em solid var(--color-accent);
+        }
+
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1em;
+        }
+
+        label {
+            margin-bottom: 0.5em;
+        }
+        
+        input, textarea {
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            width: 100%; 
+            resize: vertical; 
+        }
+        
+        button {
+            padding: 0.5em;
+            background-color: var(--color-accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #4cae4c;
+        }
+        
+        .theme-toggle {
+            margin: 1em 0;
+            padding: 0.5em;
+            cursor: pointer;
+            background-color: var(--color-accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .theme-toggle:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body class="home">
+    <header>
+        <h1>Luisa Jaime</h1>
+        <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <nav id="navbar">
+        <ul></ul>
+    </nav>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Here are some of my projects...</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>You can reach me at: <a href="mailto:luisajaime94@gmail.com">luisajaime94@gmail.com</a></p>
+        
+        <form id="contact-form" action="mailto:luisajaime94@gmail.com">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Email</button>
+        </form>
+    </section>
+
+    <script>
+        console.log("IT'S ALIVE");
+
+        function $$(selector, context = document) {
+            return Array.from(context.querySelectorAll(selector));
+        }
+
+        let pages = [
+            { url: 'index.html', title: 'Home' },
+            { url: 'projects/project.html', title: 'Projects' },
+            { url: 'contact/contact.html', title: 'Contact' },
+            { url: 'CV/cv.html', title: 'Resume' },
+            { url: 'https://github.com/Luisajaime94', title: 'GitHub Profile' }
+        ];
+        let nav = document.querySelector('nav ul');
+
+        for (let p of pages) {
+            let li = document.createElement('li');
+            let a = document.createElement('a');
+            a.href = p.url;
+            a.textContent = p.title;
+
+            // Highlight the current page
+            let currentPath = location.pathname.split('/').pop();
+            if (p.url.includes(currentPath)) {
+                a.classList.add('current');
+            }
+
+            if (a.host !== location.host) {
+                a.target = "_blank";
+            }
+
+            li.appendChild(a);
+            nav.appendChild(li);
+        }
+
+        const toggleButton = document.getElementById('theme-toggle');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+        }
+    </script>
+</body>
+</html>

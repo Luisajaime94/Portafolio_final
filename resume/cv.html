@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luisa Jaime's Resume</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> <!-- Google Font -->
+    <script src="script.js" type="module" defer></script>
+    <style>
+        :root {
+            --color-accent: #1e90ff;
+            --background-color: #f4f4f9;
+            --text-color: #333;
+            --link-color: #007bff;
+            --font-family: 'Roboto', sans-serif; /* Use Google Fonts */
+            --border-color: #d0c3c3;
+        }
+        body {
+            font-family: var(--font-family);
+            max-width: 100ch; /* limits body to 100 characters */
+            margin: max(1em, calc((100% - 100ch) / 2)); /* centers content horizontally */
+            padding-inline: 1em;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: var(--text-color);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 22px;
+            margin-top: 30px;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+        p, li {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .contact-info {
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        .contact-info a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .experience, .projects, .skills, .education {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .skills ul, .projects ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .skills ul li, .projects ul li {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .skills h3, .projects h3 {
+            margin-bottom: 10px;
+        }
+        .toggle-button {
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: var(--color-accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--link-color);
+            padding: 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            --background-color: #333333;
+            --text-color: #ffffff;
+            --link-color: #1e90ff;
+        }
+        .dark-mode a {
+            color: var(--link-color);
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 22px; }
+            h2 { font-size: 18px; }
+            p, li { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="contact-info">
+            <p>4345 Mentone St • San Diego, CA 92107</p>
+            <p>Email: <a href="mailto:luisajaime94@gmail.com">luisajaime94@gmail.com</a></p>
+            <p><a href="https://www.linkedin.com/in/luisa-jaime-garcia/" target="_blank">LinkedIn Profile</a></p>
+        </div>
+        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </header>
+
+    <section class="education">
+        <h2>Education</h2>
+        <h3>University of California, San Diego</h3>
+        <p>Masters in Data Science</p>
+        <p>Relevant Coursework: Machine Learning, Big Data Spark, Statistics</p>
+
+        <h3>ITESO (Mexico)</h3>
+        <p>Bachelors in Bioengineering</p>
+    </section>
+
+    <section class="experience">
+        <h2>Experience</h2>
+
+        <h3>Mabplex, San Diego, CA</h3>
+        <p><strong>Process Engineer II</strong> (May 2022 – Present)</p>
+        <ul>
+            <li>Developed and optimized the CHO cell culture process, utilizing statistical analysis and data interpretation to uncover insights.</li>
+            <li>Applied advanced statistical techniques to identify critical process parameters and establish robust control strategies.</li>
+            <li>Generated technical reports and documentation to communicate experimental procedures and insights effectively.</li>
+            <li>Contributed to process scale-up activities and stayed updated on industry advancements.</li>
+            <li>Led initiatives to improve cell culture processes across various platforms.</li>
+            <li>Developed standard operating procedures (SOP) for cell line development.</li>
+            <li>Developed a peptide sequence classifier using machine learning and data preprocessing techniques.</li>
+        </ul>
+
+        <h3>Biolegend, San Diego, CA</h3>
+        <p><strong>Biochemist II</strong> (January 2021 – May 2022)</p>
+        <ul>
+            <li>Executed and monitored all stages of antibody conjugation.</li>
+            <li>Successfully performed troubleshooting within the manufacturing line.</li>
+        </ul>
+
+        <h3>Scripps Laboratories, San Diego, CA</h3>
+        <p><strong>Biochemist II</strong> (January 2020 – January 2021)</p>
+        <ul>
+            <li>Successfully managed the manufacturing of various proteins through multiple purification stages, following SOP.</li>
+            <li>Worked with recombinant proteins as well as animal and human organs, extracting and purifying specific target proteins for downstream applications.</li>
+            <li>Performed comprehensive analysis of purified proteins using various bioassays, such as SDS-PAGE, HPLC, Bradford assays, ELISA, and Western Blot.</li>
+        </ul>
+    </section>
+
+    <section class="projects">
+        <h2>Data Science Relevant Coursework & Projects</h2>
+        <ul>
+            <li>Utilized Random Forest on heart risk dataset to predict potential heart attack based on different features.</li>
+            <li>Employed Apache Spark to streamline processing of large-scale air pollution data.</li>
+            <li>Utilized Pandas, NumPy, Seaborn & Matplotlib for analyzing happiness determinants in different countries.</li>
+            <li>Developed restaurant classification project leveraging SVM & XGBoost algorithms for NLP.</li>
+            <li>Data cleaning and preparation</li>
+        </ul>
+    </section>
+
+    <section class="skills">
+        <h2>Skills & Interests</h2>
+        <h3>Technical Skills:</h3>
+        <ul>
+            <li>Python</li>
+            <li>Postgres SQL</li>
+            <li>Apache Spark</li>
+            <li>Bash</li>
+            <li>Git/Github</li>
+        </ul>
+        <h3>Languages:</h3>
+        <ul>
+            <li>English - 100%</li>
+            <li>Spanish - 100%</li>
+        </ul>
+        <h3>Laboratory Skills:</h3>
+        <ul>
+            <li>Cell culture</li>
+            <li>STR Bioreactors</li>
+            <li>Ambr 250HT</li>
+            <li>Column Chromatography</li>
+            <li>SDS-PAGE</li>
+            <li>Column Packing</li>
+            <li>Perfusion</li>
+        </ul>
+        <h3>Interests:</h3>
+        <ul>
+            <li>Data Model Prediction</li>
+            <li>Process Optimization</li>
+            <li>Machine Learning</li>
+            <li>Big Data Analysis</li>
+            <li>NLP</li>
+            <li>AI</li>
+        </ul>
+    </section>
+
+    <script>
+       // Prints message IT'S ALIVE
+console.log("IT'S ALIVE");
+
+// Utility function that selects DOM based on CSS selector.
+// Simplifies selecting the elements by making querySelectorAll more accessible.
+// Converts NodeList into an array.
+function $$(selector, context = document) {
+    return Array.from(context.querySelectorAll(selector));
+}
+
+// Step 1: Create an array of pages for navigation
+
+let pages = [
+            { url: 'index.html', title: 'Home' },
+            { url: 'projects/project.html', title: 'Projects' },
+            { url: 'contact/contact.html', title: 'Contact' },
+            { url: 'CV/cv.html', title: 'Resume' },
+            { url: 'https://github.com/Luisajaime94', title: 'GitHub Profile' }
+        ];
+
+
+// Create the navigation element
+let nav = document.createElement('nav');
+let ul = document.createElement('ul');
+nav.appendChild(ul);
+document.body.prepend(nav);
+
+// Create links for the navigation
+for (let p of pages) {
+    let url = p.url;
+    let title = p.title;
+
+    // Create the link element
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = title;
+
+    // Highlight the current page
+    // Use location.pathname to match the page URL properly
+    if (location.pathname.endsWith(url)) {
+        a.classList.add('current');
+    }
+
+    // Open external links in a new tab
+    if (url.startsWith('http')) {
+        a.target = '_blank';
+    }
+
+    // Append link to the list
+    let li = document.createElement('li');
+    li.appendChild(a);
+    ul.appendChild(li);
+}
+
+    </script>
+</body>
+</html>

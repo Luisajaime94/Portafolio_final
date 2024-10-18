@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Luisa Jaime: Personal site and portfolio</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Link to the CSS file -->
+    <script src="script.js" type="module" defer></script>
+    <style>
+        :root {
+            --color-accent: oklch(65% 50% 0);
+            --background-color: #f9f9f9; /* Light mode background */
+            --text-color: #333; /* Light mode text color */
+            --border-color: #ddd; /* Light mode border color */
+        }
+
+        body {
+            max-width: 100ch;
+            margin: max(1em, calc((100% - 100ch) / 2));
+            padding-inline: 1em;
+            accent-color: var(--color-accent);
+            font-family: Arial, sans-serif; /* Ensure a readable font */
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        nav {
+            margin-bottom: 1em; /* Space below the navigation */
+        }
+
+        nav ul {
+            list-style-type: none; /* Remove bullets */
+            padding: 0; /* Remove padding */
+        }
+
+        nav ul li {
+            display: inline; /* Horizontal navigation */
+            margin-right: 1em; /* Space between items */
+        }
+
+        h1 {
+            font-size: 4em; /* Make the h1 significantly larger */
+            line-height: 1.1; /* Good default for h1 */
+        }
+
+        .projects {
+            display: grid; /* Make .projects a grid container */
+            grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible columns */
+            gap: 1em; /* Space between grid items */
+        }
+
+        .projects article {
+            display: grid; /* Grid container for articles */
+            grid-template-rows: auto; /* Align rows */
+            padding: 1em; /* Padding inside each article */
+            border: 1px solid var(--border-color); /* Optional: border around articles */
+            border-radius: 8px; /* Optional: rounded corners */
+            background-color: #fff; /* Optional: background color */
+        }
+
+        .projects h2 {
+            margin: 0; /* Remove excessive spacing */
+        }
+
+        .projects img {
+            max-width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Dark mode styles */
+        body.dark {
+            --background-color: #121212; /* Dark mode background */
+            --text-color: #e0e0e0; /* Dark mode text color */
+            --border-color: #444; /* Dark mode border color */
+        }
+
+        .projects article.dark {
+            background-color: #1e1e1e; /* Dark mode article background */
+        }
+
+        .color-scheme {
+            margin-bottom: 1em; /* Space below the color scheme selector */
+        }
+    </style>
+</head>
+<body>
+    <!-- Color scheme switcher -->
+    <div class="color-scheme">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+            <option value="auto">Automatic</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
+
+    <nav>
+        <ul>
+            <!-- Navigation links will be dynamically added here -->
+        </ul>
+    </nav>
+    
+    <h1>Projects</h1>
+    <p>Lab Projects Setup Lab 1 projects folder</p>
+    <div class="projects">
+        <article>
+            <h2>Lorem 1?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 2?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 3?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 4?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 5?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 6?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 7?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 8?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 9?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 10?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 11?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+        <article>
+            <h2>Lorem 12?</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
+            <p>Lorem?</p>
+        </article>
+    </div>
+    
+    <script>
+        // Prints message ITS ALIVE
+        console.log("IT'S ALIVE");
+
+        // Utility function that selects DOM based on CSS selector.
+        function $$(selector, context = document) {
+            return Array.from(context.querySelectorAll(selector));
+        }
+
+        // Step 2: Automatic current page link
+        let pages = [
+            { url: 'index.html', title: 'Home' },
+            { url: 'projects/project.html', title: 'Projects' },
+            { url: 'contact/contact.html', title: 'Contact' },
+            { url: 'CV/cv.html', title: 'Resume' },
+            { url: 'https://github.com/Luisajaime94', title: 'GitHub Profile' }
+        ];
+
+        // Create the navigation element
+        let nav = document.querySelector('nav');
+        let ul = document.createElement('ul');
+        nav.appendChild(ul);
+
+        // Create links for the navigation
+        for (let p of pages) {
+            let url = p.url;
+            let title = p.title;
+
+            // Create the link element
+            let a = document.createElement('a');
+            a.href = url;
+            a.textContent = title;
+
+            // Highlight the current page
+            a.classList.toggle('current', a.href === location.href);
+
+            // Open external links in a new tab
+            if (a.host !== location.host) {
+                a.target = "_blank";
+            }
+
+            // Append the link to the <ul>
+            let li = document.createElement('li'); // Create list item
+            li.appendChild(a); // Append link to list item
+            ul.appendChild(li); // Append list item to the <ul>
+        }
+
+        // Step 4.2: Adding color scheme switcher functionality
+        const select = document.getElementById('theme-select');
+        select.addEventListener('input', function (event) {
+            const colorScheme = event.target.value;
+            document.documentElement.style.setProperty('color-scheme', colorScheme);
+            localStorage.colorScheme = colorScheme; // Save preference
+            if (colorScheme === 'dark') {
+                document.body.classList.add('dark');
+            } else {
+                document.body.classList.remove('dark');
+            }
+        });
+
+        // Load the user's preference on page load
+        if ('colorScheme' in localStorage) {
+            const savedScheme = localStorage.colorScheme;
+            document.documentElement.style.setProperty('color-scheme', savedScheme);
+            select.value = savedScheme; // Set select to saved value
+            if (savedScheme === 'dark') {
+                document.body.classList.add('dark');
+            }
+        }
+    </script>
+</body>
+</html>
